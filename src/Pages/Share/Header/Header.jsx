@@ -6,21 +6,24 @@ import logo from '../../../images/logo.png';
 const Header = () => {
     return (
         <>
-           <Navbar bg="dark" variant="dark">
-    <Container>
-    <Navbar.Brand href="/">
-        <img src={logo} height='30' alt="" />
-    </Navbar.Brand>
-    <Nav className="ms-auto">
-      <Link className='nav-link' to="/home">Home</Link>
-      <Link className='nav-link' to="/services">Services</Link>
-      <Link className='nav-link' to="/experts">Experts</Link>
-      <Link className='nav-link' to="/features">Features</Link>
-      <Link className='nav-link' to="/pricing">Pricing</Link>
-      <Link className='nav-link' to="/pricing">About</Link>
+  <Navbar sticky='top' collapseOnSelect expand="lg" bg="dark" variant="dark">
+  <Container>
+  <Navbar.Brand as={Link} to="/"><img src={logo} height='30' alt="" /></Navbar.Brand>
+  <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+  <Navbar.Collapse id="responsive-navbar-nav">
+    <Nav className="me-auto">
+      <Nav.Link as={Link} to="#services">Services</Nav.Link>
+      <Nav.Link as={Link} to="#experts">Experts</Nav.Link> 
     </Nav>
-    </Container>
-  </Navbar>
+    <Nav>
+      <Nav.Link as={Link} to="/about">About</Nav.Link>
+      <Nav.Link as={Link} to="/login">
+        LogIn
+      </Nav.Link>
+    </Nav>
+  </Navbar.Collapse>
+  </Container>
+</Navbar>
         </>
     );
 };
