@@ -3,6 +3,7 @@ import { Button, Form } from "react-bootstrap";
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
+import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Register = () => {
   const [
@@ -27,7 +28,7 @@ const Register = () => {
         style={{ textAlign: "left" }}
       >
         <Form.Group className="mb-3" controlId="formBasicName">
-          <Form.Label>Name</Form.Label>
+          
           <Form.Control
             type="text"
             name="name"
@@ -36,20 +37,17 @@ const Register = () => {
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
+          
           <Form.Control
             type="email"
             name="email"
             placeholder="Enter email"
             required
           />
-          <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-          </Form.Text>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
+        
           <Form.Control
             type="password"
             name="password"
@@ -58,7 +56,7 @@ const Register = () => {
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicConfirmPassword">
-          <Form.Label>Confirm Password</Form.Label>
+          
           <Form.Control
             type="password"
             name="confirmPassword"
@@ -66,7 +64,9 @@ const Register = () => {
             required
           />
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <input type="checkbox" name="terms" id="terms" />
+        <label htmlFor="terms" className="m-2">Accept Genius Car Terms and Conditions</label>
+        <Button variant="primary" className="w-50 d-block mx-auto mb-2" type="submit">
           Register
         </Button>
       </Form>
@@ -76,6 +76,7 @@ const Register = () => {
           Please Login
         </Link>
       </p>
+      <SocialLogin/>
     </div>
   );
 };
